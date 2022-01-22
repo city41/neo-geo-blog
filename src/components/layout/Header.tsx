@@ -39,9 +39,11 @@ function Header({ className }: HeaderProps) {
 						</div>
 					</div>
 					<MenuLink href="/devlog">Franic! Dev Log</MenuLink>
-					<MenuLink href="/book">Neo Geo Dev Book</MenuLink>
+					<MenuLink href="https://neogeobook.mattgreer.dev">
+						Neo Geo Dev Book
+					</MenuLink>
 					<MenuLink href="/tools">Neo Geo Tools</MenuLink>
-					<MenuLink href="/contact">Contact</MenuLink>
+					<MenuLink href="mailto:matt.e.greer@gmail.com">Contact</MenuLink>
 				</div>
 			</div>
 		</header>

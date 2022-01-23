@@ -1,48 +1,16 @@
-import clsx from 'clsx';
-import { ReactNode } from 'react';
 import { Root } from '../layout/Root';
+import { HeroItem } from './HeroItem';
 
 import franicTitleScreenPng from './franicTitleScreen.png';
 import helloWorldPng from './helloWorld.png';
 import neoSpriteViewerPng from './neoSpriteViewer.png';
+import { PostEntry } from './PostEntry';
 
-type HeroItemProps = {
-	className?: string;
-	title: string;
-	description: string;
-	url: string;
-	children: ReactNode;
+type IndexPageProps = {
+	posts: Post[];
 };
 
-function HeroItem({
-	className,
-	title,
-	description,
-	url,
-	children,
-}: HeroItemProps) {
-	return (
-		<a href={url}>
-			<div
-				className={clsx(
-					className,
-					'flex flex-col items-center group mx-auto border-t-4 border-transparent hover:border-blue-700'
-				)}
-				style={{ maxWidth: 320 }}
-			>
-				<div>{children}</div>
-				<div className="w-full text-center py-1 bg-gray-900 group-hover:bg-blue-700 text-white font-bold text-xl">
-					<div>{title}</div>
-					<div className="w-full text-xs text-gray-300 font-normal">
-						{description}
-					</div>
-				</div>
-			</div>
-		</a>
-	);
-}
-
-function IndexPage() {
+function IndexPage({ posts }: IndexPageProps) {
 	return (
 		<Root
 			title="Neo Geo Development Blog"
@@ -57,6 +25,7 @@ function IndexPage() {
 						className="flex-1"
 						title="Franic!"
 						description="A Neo Geo game I am making"
+						type="franic"
 						url="/franic"
 					>
 						<img
@@ -70,6 +39,7 @@ function IndexPage() {
 						className="flex-1"
 						title="Dev Book"
 						description="A book on how to code the Neo"
+						type="neobook"
 						url="https://neogeobook.mattgreer.dev"
 					>
 						<img
@@ -83,6 +53,7 @@ function IndexPage() {
 						className="flex-1"
 						title="Tools"
 						description="Neo Geo tools I have created"
+						type="neotools"
 						url="/tools"
 					>
 						<img
@@ -93,10 +64,22 @@ function IndexPage() {
 						/>
 					</HeroItem>
 				</div>
-				<h1 className="font-bold text-2xl mt-12">Latest Updates</h1>
+				<h1 className="font-bold text-3xl mt-16">Latest Updates</h1>
+				{posts.map((post, i) => {
+					return (
+						<PostEntry
+							className={i === 0 ? 'mt-8' : 'mt-12'}
+							key={post.slug}
+							meta={post.meta}
+							content={post.content}
+							slug={post.slug}
+						/>
+					);
+				})}
 			</div>
 		</Root>
 	);
 }
 
 export { IndexPage };
+export type { IndexPageProps };

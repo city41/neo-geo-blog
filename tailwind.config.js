@@ -5,6 +5,23 @@ module.exports = {
 			cursor: {
 				crosshair: 'crosshair',
 			},
+			colors: {
+				franic: {
+					fade: 'var(--color-franic-fade)',
+					DEFAULT: 'var(--color-franic)',
+					deep: 'var(--color-franic-deep)',
+				},
+				neobook: {
+					fade: 'var(--color-neobook-fade)',
+					DEFAULT: 'var(--color-neobook)',
+					deep: 'var(--color-neobook-deep)',
+				},
+				neotools: {
+					fade: 'var(--color-neotools-fade)',
+					DEFAULT: 'var(--color-neotools)',
+					deep: 'var(--color-neotools-deep)',
+				},
+			},
 		},
 	},
 	variants: {

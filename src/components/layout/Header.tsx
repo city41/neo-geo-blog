@@ -38,7 +38,7 @@ function Header({ className }: HeaderProps) {
 							<a href="/">Matt&apos;s Neo Stuff</a>
 						</div>
 					</div>
-					<MenuLink href="/devlog">Franic! Dev Log</MenuLink>
+					<MenuLink href="/franic">Franic!</MenuLink>
 					<MenuLink href="https://neogeobook.mattgreer.dev">
 						Neo Geo Dev Book
 					</MenuLink>

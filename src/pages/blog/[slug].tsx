@@ -9,6 +9,10 @@ import type { PostPageProps } from '../../components/blog/PostPage';
 import { getAllPosts, getPostBySlug } from '../../lib/posts';
 import markdownToHtml from '../../lib/markdown';
 
+export const config = {
+	unstable_runtimeJS: false,
+};
+
 type NextSlugPageProps = PostPageProps;
 
 export async function getStaticProps({

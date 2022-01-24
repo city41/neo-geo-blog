@@ -64,11 +64,11 @@ function IndexPage({ posts }: IndexPageProps) {
 						/>
 					</HeroItem>
 				</div>
-				<h1 className="font-bold text-3xl mt-16">Latest Updates</h1>
+				<h1 className="font-bold text-3xl mt-16 text-center">Latest Updates</h1>
 				{posts.map((post, i) => {
 					return (
 						<PostEntry
-							className={i === 0 ? 'mt-8' : 'mt-12'}
+							className={i === 0 ? 'mt-12' : 'mt-24'}
 							key={post.slug}
 							meta={post.meta}
 							content={post.content}

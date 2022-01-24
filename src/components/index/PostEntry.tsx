@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { BsMegaphone } from 'react-icons/bs';
-import { GrNotes } from 'react-icons/gr';
+import { AiOutlineNotification, AiOutlineFileText } from 'react-icons/ai';
 
 import typographyClasses from '../../styles/typography.module.css';
+import { dateToHumanString } from '../../util';
 
 type PostEntryProps = {
 	className?: string;
@@ -17,28 +17,10 @@ const readableCategoryString: Record<Category, string> = {
 	neobook: 'dev book',
 };
 
-function dateToHumanString(input: string): string {
-	const date = new Date(input);
-
-	const month = date.toLocaleDateString('en-us', {
-		month: 'short',
-	});
-
-	const day = date.toLocaleDateString('en-us', {
-		day: 'numeric',
-	});
-
-	const year = date.toLocaleDateString('en-us', {
-		year: 'numeric',
-	});
-
-	return `${day} ${month} ${year}`;
-}
-
 function PostEntry({ className, meta, content, slug }: PostEntryProps) {
-	const { title, date, announcement, category } = meta;
+	const { title, description, date, announcement, category } = meta;
 
-	const Icon = announcement ? BsMegaphone : GrNotes;
+	const Icon = announcement ? AiOutlineNotification : AiOutlineFileText;
 
 	const body = (
 		<div
@@ -48,9 +30,12 @@ function PostEntry({ className, meta, content, slug }: PostEntryProps) {
 			)}
 		>
 			<h2 className="group relative font-bold mb-4 text-2xl flex flex-row justify-between items-center">
-				<Icon className="w-6 h-6 mr-4" />
+				<Icon
+					className="w-6 h-6 mr-4 text-white"
+					title={announcement ? 'announcement' : 'article'}
+				/>
 				<div className="flex-1 flex flex-row gap-x-2 items-center">
-					<div className="text-gray-300 flex flex-row gap-x-2 items-center">
+					<div className="text-white flex flex-row gap-x-2 items-center">
 						{title}
 					</div>
 					<div
@@ -69,9 +54,14 @@ function PostEntry({ className, meta, content, slug }: PostEntryProps) {
 			</h2>
 			{!!announcement && (
 				<div
-					className={typographyClasses.typography}
+					className={clsx(typographyClasses.typography, 'ml-10')}
 					dangerouslySetInnerHTML={{ __html: content }}
 				/>
+			)}
+			{!announcement && (
+				<div className={clsx(typographyClasses.typography, 'ml-10')}>
+					{description}
+				</div>
 			)}
 		</div>
 	);

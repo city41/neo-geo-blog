@@ -23,7 +23,7 @@ From there I whipped up the title screen
 
 Which I'm also pretty happy with.
 
-## in game graphics
+## In game graphics
 
 I have the first level well under way, so now I am exploring actual in game graphics. Franic doesn't have much of a story, but I did decide the premise is it takes place in a virtual environment. That concept shows itself a little bit such as when the player spawns, and other hints will be added to show this is all a virtual place.
 

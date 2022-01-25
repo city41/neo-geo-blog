@@ -52,9 +52,9 @@ function ToolsPage() {
 						identical .neo files.
 					</p>
 					<p>
-						Honestly, this tool isn&apos;t as useful these days, as NeoBuilder
-						can be used on the command line. If you aren&apos;t a Windows user,
-						it runs fine under Wine and probably under Mono too.
+						There is now a{' '}
+						<a href="https://toneosd.mattgreer.dev">web version</a>, convert a
+						ROM right in your browser.
 					</p>
 				</ToolEntry>
 				<ToolEntry title="sromcrom" url="https://github.com/city41/sromcrom">
